@@ -18,7 +18,7 @@ def MenuP():
             pass
 
         elif answer == "3":
-            pass
+            Rnumber()
 
         elif answer == "4":
             pass
@@ -40,15 +40,20 @@ def EndP():
 
 #8-Ball Choice: User can shake ball, Menu or back.
 def Magic8Ball():
-    balldict = ["It is certain.","It is decidedly so.","Without a doubt.","Yes definitely.",
-                "You may rely on it.","As I see it, yes.","Most likely.","Outlook good.","Yes.",
-                "Signs point to yes.","Im legally not allowed to tell you.","That is a very stupid question.",
-                "You cant face the truth.","Are you drunk?","Is this even a question?","No!",
-                "It's quite obvious the answer is no.","I dont think so","Nah","What? absolutly not."]
+    balldict = [color(10,200,10,"It is certain."),color(10,200,10,"It is decidedly so."),
+                color(10,200,10,"Without a doubt."),color(10,200,10,"Yes definitely."),
+                color(10,200,10,"You may rely on it."),color(10,200,10,"As I see it, yes."),
+                color(10,200,10,"Most likely."),color(10,200,10,"Outlook good."),color(10,200,10,"Yes."),
+                color(10,200,10,"Signs point to yes."),color(150,150,10,"Im legally not allowed to tell you."),
+                color(150,150,10,"That is a very stupid question."),color(150,150,10,"You cant face the truth."),
+                color(150,150,10,"Are you drunk?"),color(150,150,10,"Is this even a question?"),
+                color(150,10,10,"No!"),color(150,10,10,"It's quite obvious the answer is no."),
+                color(150,10,10,"I dont think so"),color(150,10,10,"Nah"),
+                color(150,10,10,"What? absolutly not.")]
     while True:
         print(color(0,200,255,"Type '1' to get back to menu or '2' to exit the program."))
-        print(color(150,80,230,"Note that the 8-Ball will resond to No/Yes answers only.\n"
-                               "Type your questions below."))
+        print(color(150,80,230,"(Note!) that the 8-Ball can respond to No/Yes answers only.\n"
+                               "Type your questions below. Answers will appear above."))
         answer = input("1. Back to Menu\n" + color(200,10,10,"2. Exit Program\n\n\n\n\n\n"))
         if answer == "1":
             MenuP()
@@ -59,5 +64,30 @@ def Magic8Ball():
         else:
             ballgenchoice = random.choice(balldict)
             print(ballgenchoice)
-MenuP()
 
+def Rnumber():
+    while True:
+        print(color(0,200,255,"\n\n\n\nChoose your two numbers, Roll them, Menu or Back."))
+        answer = input("1. Choose Numbers\n" + "2. Roll your numbers\n" + ""
+        "3. Menu\n" + color(200,10,10,"4. Exit\n\n\n\n\n"))
+
+        if answer == "1":
+            numb = input(int("Type your first number below\n\n"))
+            numb2 = input(int("Type your second number below\n\n"))
+
+        elif answer == "2":
+            print(random.randint(numb,numb2))
+
+        elif answer == "3":
+            MenuP()
+
+        elif answer == "4":
+            EndP()
+
+        else:
+            print("-----------------------")
+            print(color(255,165,0,"Please input a valid option!"))
+            print("-----------------------")
+
+
+MenuP()
