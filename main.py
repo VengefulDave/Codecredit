@@ -65,19 +65,35 @@ def Magic8Ball():
             ballgenchoice = random.choice(balldict)
             print(ballgenchoice)
 
+#Random Number Choice: User chooses two numbers to generate between.
 def Rnumber():
     while True:
-        print(color(0,200,255,"\n\n\n\nChoose your two numbers, Roll them, Menu or Back."))
-        answer = input("1. Choose Numbers\n" + "2. Roll your numbers\n" + ""
+        print(color(0,200,255,"\nChoose your two numbers, Roll them, Menu or Back."))
+        answer = input("1. Choose Numbers\n" + "2. Roll numbers\n" + ""
         "3. Menu\n" + color(200,10,10,"4. Exit\n\n\n\n\n"))
 
+
         if answer == "1":
-            numb = input(int("Type your first number below\n\n"))
-            numb2 = input(int("Type your second number below\n\n"))
+            try:
+                print(color(150,80,230,"\n\n(Note!) The first number cannot be bigger than the second. "
+                                       "Both numbers have to be a number!"))
+                numb = int(input("Type your first number below\n\n"))
+                numb2 = int(input("Type your second number below\n\n"))
+            except:
+                print(color(200,150,10,"------------------------------------------------"))
+                print(color(255,10,10,"GRR.. YOU DIDN'T READ THE NOTES. Re-Choose Your Numbers!"))
+                print(color(200,150,10,"------------------------------------------------"))
+                Rnumber()
 
         elif answer == "2":
-            print(random.randint(numb,numb2))
-
+            try:
+                print(color(150,80,230,"Your number: "))
+                print(random.randint(numb,numb2))
+            except:
+                print(color(200,150,10,"-----------------------------"))
+                print(color(255,10,10,"Pick Your 'CORRECT' Numbers First!"))
+                print(color(200,150,10,"-----------------------------"))
+                Rnumber()
         elif answer == "3":
             MenuP()
 
@@ -88,6 +104,7 @@ def Rnumber():
             print("-----------------------")
             print(color(255,165,0,"Please input a valid option!"))
             print("-----------------------")
+
 
 
 MenuP()
