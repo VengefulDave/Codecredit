@@ -9,13 +9,13 @@ def color(r, g, b, text):
 def MenuP():
     while True:
         print(color(0,200,255,"Type in the number corresponding to the desired generation style."))
-        answer = input("1. Magic 8 Ball\n2. Dice\n3. Random Number\n4."
-                       "Passwords Generation\n5. Names Generation\n6. Exit\n\n")
+        answer = input("1. Magic 8 Ball\n2. Dice\n3. Random Number\n4. "
+                       "Passwords Generation\n5. Names Generation\n" + color(250,10,10,"6. Exit\n\n\n"))
         if answer == "1":
             Magic8Ball()
 
         elif answer == "2":
-            pass
+            Dice()
 
         elif answer == "3":
             Rnumber()
@@ -44,9 +44,9 @@ def Magic8Ball():
                 color(10,200,10,"Without a doubt."),color(10,200,10,"Yes definitely."),
                 color(10,200,10,"You may rely on it."),color(10,200,10,"As I see it, yes."),
                 color(10,200,10,"Most likely."),color(10,200,10,"Outlook good."),color(10,200,10,"Yes."),
-                color(10,200,10,"Signs point to yes."),color(150,150,10,"Im legally not allowed to tell you."),
-                color(150,150,10,"That is a very stupid question."),color(150,150,10,"You cant face the truth."),
-                color(150,150,10,"Are you drunk?"),color(150,150,10,"Is this even a question?"),
+                color(10,200,10,"Signs point to yes."),color(200,150,10,"Im legally not allowed to tell you."),
+                color(200,150,10,"That is a very stupid question."),color(200,150,10,"You cant face the truth."),
+                color(200,150,10,"Are you drunk?"),color(200,150,10,"Is this even a question?"),
                 color(150,10,10,"No!"),color(150,10,10,"It's quite obvious the answer is no."),
                 color(150,10,10,"I dont think so"),color(150,10,10,"Nah"),
                 color(150,10,10,"What? absolutly not.")]
@@ -105,6 +105,45 @@ def Rnumber():
             print(color(255,165,0,"Please input a valid option!"))
             print("-----------------------")
 
+#Dice choice: Choose a realistic dice option and roll.
+def Dice():
+    while True:
+        print(color(0,200,255,"\nChoose Dice type, Roll it, Menu or Exit."))
+        answer = input("1. Choose Dice\n2. Roll\n3. Menu" + color(250,10,10,"\n4. Exit\n\n\n"))
+        if answer == "1":
+            print(color(10,200,255,"Choose Dice Style:") +
+                  color(150,80,230,"\n(Note!) Choose the letter corresponding to the choice!"))
+            diceCh = input("\nA. 4 Side\nB. 6 Side\nC. 8 Side\nD. 10 Side\nE. 12 Side"
+                           "\nF. 20 Side\n\n\n")
+            dicelist = ["a","A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F"]
+            if diceCh not in dicelist:
+                print("-----------------------")
+                print(color(255,165,0,"Please input a valid option!"))
+                print("-----------------------")
 
+        elif answer == "2":
+            if diceCh == "a" or "A":
+                diceRe = random.randint(1,4)
+            if diceCh == "b" or "B":
+                diceRe = random.randint(1,6)
+            if diceCh == "c" or "C":
+                diceRe = random.randint(1,8)
+            if diceCh == "d" or "D":
+                diceRe = random.randint(1,10)
+            if diceCh == "e" or "E":
+                diceRe = random.randint(1,12)
+            if diceCh == "f" or "F":
+                diceRe = random.randint(1,20)
+            print(color(150,80,230,"Your Dice Roll Number:{}".format(diceRe)))
+        elif answer == "3":
+            MenuP()
+
+        elif answer == "4":
+            EndP()
+
+        else:
+            print("-----------------------")
+            print(color(255,165,0,"Please input a valid option!"))
+            print("-----------------------")
 
 MenuP()
