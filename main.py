@@ -21,7 +21,7 @@ def MenuP():
             Rnumber()
 
         elif answer == "4":
-            pass
+            PassGen()
 
         elif answer == "5":
             pass
@@ -30,14 +30,25 @@ def MenuP():
             EndP()
 
         else:
-            print("-----------------------")
-            print(color(255,165,0,"Please input a valid option!"))
-            print("-----------------------")
+            print(color(200,150,10,"-----------------------"))
+            print(color(255,10,10,"Please input a valid option!"))
+            print(color(200,150,10,"-----------------------"))
 
-#Code exit function
+#Code End Choice: Ends the code completely.
 def EndP():
-    exit()
-
+    print(color(200,150,10,"\n\n\n\n\n\n\nAre You Sure You Want To Exit, Type The Number Of Choice Options."))
+    answer = input(color(255,10,10,"\n1. Yes, End This Program!") +
+                   color(10,255,10,"\n2. No, Get Me Back To The Program!\n\n\n\n\n"))
+    while True:
+        if answer == "1":
+            exit()
+        elif answer == "2":
+            MenuP()
+        else:
+            print(color(200,150,10,"-----------------------"))
+            print(color(255,10,10,"Please input a valid option!"))
+            print(color(200,150,10,"-----------------------"))
+            EndP()
 #8-Ball Choice: User can shake ball, Menu or back.
 def Magic8Ball():
     balldict = [color(10,200,10,"It is certain."),color(10,200,10,"It is decidedly so."),
@@ -51,7 +62,7 @@ def Magic8Ball():
                 color(150,10,10,"I dont think so"),color(150,10,10,"Nah"),
                 color(150,10,10,"What? absolutly not.")]
     while True:
-        print(color(0,200,255,"Type '1' to get back to menu or '2' to exit the program."))
+        print(color(0,200,255,"Type '1' For Menu, '2' to End Program or Type Questions Below."))
         print(color(150,80,230,"(Note!) that the 8-Ball can respond to No/Yes answers only.\n"
                                "Type your questions below. Answers will appear above."))
         answer = input("1. Back to Menu\n" + color(200,10,10,"2. Exit Program\n\n\n\n\n\n"))
@@ -101,11 +112,11 @@ def Rnumber():
             EndP()
 
         else:
-            print("-----------------------")
-            print(color(255,165,0,"Please input a valid option!"))
-            print("-----------------------")
+            print(color(200,150,10,"-----------------------"))
+            print(color(255,10,10,"Please input a valid option!"))
+            print(color(200,150,10,"-----------------------"))
 
-#Dice choice: Choose a realistic dice option and roll.
+#Dice Choice: Choose a realistic dice option and roll.
 def Dice():
     while True:
         print(color(0,200,255,"\nChoose Dice type, Roll it, Menu or Exit."))
@@ -117,24 +128,41 @@ def Dice():
                            "\nF. 20 Side\n\n\n")
             dicelist = ["a","A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F"]
             if diceCh not in dicelist:
-                print("-----------------------")
-                print(color(255,165,0,"Please input a valid option!"))
-                print("-----------------------")
-
+                print(color(200,150,10,"-----------------------"))
+                print(color(255,10,10,"Please input a valid option!"))
+                print(color(200,150,10,"-----------------------"))
+            if diceCh.lower() == "a":
+                userinput = "A. 4 Side"
+            if diceCh.lower() == "b":
+                userinput = "B. 6 Side"
+            if diceCh.lower() == "c":
+                userinput = "C. 8 Side"
+            if diceCh.lower() == "d":
+                userinput = "D. 10 Side"
+            if diceCh.lower() == "e":
+                userinput = "E. 12 Side"
+            if diceCh.lower() == "f":
+                userinput = "F. 20 Side"
+            print(color(150,80,230,"\nYour Choice: {}".format(userinput)))
         elif answer == "2":
-            if diceCh == "a" or "A":
-                diceRe = random.randint(1,4)
-            if diceCh == "b" or "B":
-                diceRe = random.randint(1,6)
-            if diceCh == "c" or "C":
-                diceRe = random.randint(1,8)
-            if diceCh == "d" or "D":
-                diceRe = random.randint(1,10)
-            if diceCh == "e" or "E":
-                diceRe = random.randint(1,12)
-            if diceCh == "f" or "F":
-                diceRe = random.randint(1,20)
-            print(color(150,80,230,"Your Dice Roll Number:{}".format(diceRe)))
+            try:
+                if diceCh.lower() == "a":
+                    diceRe = random.randint(1,4)
+                if diceCh.lower() == "b":
+                    diceRe = random.randint(1,6)
+                if diceCh.lower() == "c":
+                    diceRe = random.randint(1,8)
+                if diceCh.lower() == "d":
+                    diceRe = random.randint(1,10)
+                if diceCh.lower() == "e":
+                    diceRe = random.randint(1,12)
+                if diceCh.lower() == "f":
+                    diceRe = random.randint(1,20)
+                print(color(150,80,230,"Your Dice Roll Number:{}".format(diceRe)))
+            except:
+                print(color(200,150,10,"-----------------------"))
+                print(color(255,10,10,"Choose a Dice first!"))
+                print(color(200,150,10,"-----------------------"))
         elif answer == "3":
             MenuP()
 
@@ -142,8 +170,28 @@ def Dice():
             EndP()
 
         else:
-            print("-----------------------")
-            print(color(255,165,0,"Please input a valid option!"))
-            print("-----------------------")
+            print(color(200,150,10,"-----------------------"))
+            print(color(255,10,10,"Please input a valid option!"))
+            print(color(200,150,10,"-----------------------"))
+
+#Password.Gen Choice:
+def PassGen():
+    print(color(0,200,255,"\nGenerate Passwords, Input your own keywords, Menu or Exit."))
+    answer = input("1. Choose Gen Style.\n2. Gen Passwords\n3. Input Own Keywords"
+                   "\n4. Menu" + color(250,10,10,"\n5. Exit\n\n\n"))
+    if answer == "1":
+        pass
+
+    if answer == "2":
+        pass
+
+    if answer == "3":
+        pass
+
+    if answer== "4":
+        MenuP()
+
+    if answer == "5":
+        EndP()
 
 MenuP()
