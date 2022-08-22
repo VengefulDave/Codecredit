@@ -176,22 +176,51 @@ def Dice():
 
 #Password.Gen Choice:
 def PassGen():
-    print(color(0,200,255,"\nGenerate Passwords, Input your own keywords, Menu or Exit."))
-    answer = input("1. Choose Gen Style.\n2. Gen Passwords\n3. Input Own Keywords"
-                   "\n4. Menu" + color(250,10,10,"\n5. Exit\n\n\n"))
-    if answer == "1":
-        pass
+    while True:
+        print(color(0,200,255,"\nGenerate Passwords, Input your own keywords, Menu or Exit."))
+        answer = input("1. Generate Preset Pass\n2. Genarate Own Pass\n3. Input Own Pass Keywords"
+                    "\n4. Menu" + color(250,10,10,"\n5. Exit\n\n\n"))
+        passlist1 = random.choice("QWERTYUIOPASDFGHJKLZXCVBNM")
+        passlist2 = random.choice("!@#$%^&*()")
+        passlist3 = random.choice("1234567890")
+        if answer == "1":
+            print(color(150,80,230,"Your Password:") +
+                "{}{}{}{}{}{}".format(passlist1,passlist1,passlist1,passlist2,passlist3,passlist3,))
 
-    if answer == "2":
-        pass
+        elif answer == "2":
+            pass
 
-    if answer == "3":
-        pass
+        elif answer == "3":
+            print(color(0,200,255,"\n\n\nTypes of words to add to your password generation, or Back"))
+            answer = input("\n1. Choose a Memorable Place To You, Eg. Kulim Park"
+                           "\n2. Choose Your Most Common Emotion, Eg. Anger\n3. Choose Your Favourite Animal" +
+                           "\n4. Back to Password Gen Menu\n\n\n")
+            if answer == "1":
+                while True:
+                    ownchoice = input(color(150,80,230,"Type Below a/multiple Memorable Place or Back"))
 
-    if answer== "4":
-        MenuP()
+            elif answer == "2":
+                pass
+            elif answer == "3":
+                pass
 
-    if answer == "5":
-        EndP()
 
+            elif answer == "4":
+                pass
+            else:
+                print(color(200,150,10,"-----------------------"))
+                print(color(255,10,10,"Please input a valid option!"))
+                print(color(200,150,10,"-----------------------"))
+
+
+        elif answer== "4":
+            MenuP()
+
+        elif answer == "5":
+            EndP()
+
+        else:
+            print(color(200,150,10,"-----------------------"))
+            print(color(255,10,10,"Please input a valid option!"))
+            print(color(200,150,10,"-----------------------"))
 MenuP()
