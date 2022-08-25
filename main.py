@@ -176,6 +176,9 @@ def Dice():
 
 #Password.Gen Choice:
 def PassGen():
+    placelist = []
+    emotionlist = []
+    animallist = []
     while True:
         print(color(0,200,255,"\nGenerate Passwords, Input your own keywords, Menu or Exit."))
         answer = input("1. Generate Preset Pass\n2. Genarate Own Pass\n3. Input Own Pass Keywords"
@@ -188,25 +191,46 @@ def PassGen():
                 "{}{}{}{}{}{}".format(passlist1,passlist1,passlist1,passlist2,passlist3,passlist3,))
 
         elif answer == "2":
-            pass
+            placegen = random.choice([placelist])
+            emotiongen = random.choice([emotionlist])
+            animalgen = random.choice([animallist])
+            print(color(150,80,230,"Your Password:") +
+                "{}{}@{}".format(emotiongen,animalgen,placegen))
 
         elif answer == "3":
             print(color(0,200,255,"\n\n\nTypes of words to add to your password generation, or Back"))
             answer = input("\n1. Choose a Memorable Place To You, Eg. Kulim Park"
                            "\n2. Choose Your Most Common Emotion, Eg. Anger\n3. Choose Your Favourite Animal" +
-                           "\n4. Back to Password Gen Menu\n\n\n")
+                           color(255,150,10,"\n4. Back to Password Gen Menu\n\n\n"))
             if answer == "1":
                 while True:
-                    ownchoice = input(color(150,80,230,"Type Below a/multiple Memorable Place or Back"))
-
+                    ownchoice1 = input(color(150,80,230,
+                        "Type Below a/multiple Memorable Place, or Type '1' to go Back\n\n"))
+                    if ownchoice1 == "1":
+                        PassGen()
+                    else:
+                        placelist.append([ownchoice1])
+                        print("{} : ".format(ownchoice1) + color(255,150,10,"Has been added to the 'Place' List!"))
             elif answer == "2":
-                pass
+                while True:
+                    ownchoice2 = input(color(150,80,230,
+                        "Type Below Common Emotion/Emotions To You, or Type '1' to go Back\n\n"))
+                    if ownchoice2 == "1":
+                        PassGen()
+                    else:
+                        emotionlist.append([ownchoice2])
+                        print("{} : ".format(ownchoice2) + color(255,150,10,"Has been added to the 'Emotion' List!"))
             elif answer == "3":
-                pass
-
-
+                while True:
+                    ownchoice3 = input(color(150,80,230,
+                        "Type Below Your Favourite Animal/Animals, or Type '1' to go Back\n\n"))
+                    if ownchoice3 == "1":
+                        PassGen()
+                    else:
+                        animallist.append([ownchoice3])
+                        print("{} : ".format(ownchoice3) + color(255,150,10,"Has been added to the 'Animal' List!"))
             elif answer == "4":
-                pass
+                PassGen()
             else:
                 print(color(200,150,10,"-----------------------"))
                 print(color(255,10,10,"Please input a valid option!"))
