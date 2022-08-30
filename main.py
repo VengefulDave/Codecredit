@@ -49,6 +49,7 @@ def EndP():
             print(color(255,10,10,"Please input a valid option!"))
             print(color(200,150,10,"-----------------------"))
             EndP()
+
 #8-Ball Choice: User can shake ball, Menu or back.
 def Magic8Ball():
     balldict = [color(10,200,10,"It is certain."),color(10,200,10,"It is decidedly so."),
@@ -118,32 +119,34 @@ def Rnumber():
 
 #Dice Choice: Choose a realistic dice option and roll.
 def Dice():
+    userdice = "Nothing!"
     while True:
         print(color(0,200,255,"\nChoose Dice type, Roll it, Menu or Exit."))
         answer = input("1. Choose Dice\n2. Roll\n3. Menu" + color(250,10,10,"\n4. Exit\n\n\n"))
         if answer == "1":
             print(color(10,200,255,"Choose Dice Style:") +
-                  color(150,80,230,"\n(Note!) Choose the letter corresponding to the choice!"))
+            color(150,80,230,"\n(Note!) Choose the letter corresponding to the choice!"))
             diceCh = input("\nA. 4 Side\nB. 6 Side\nC. 8 Side\nD. 10 Side\nE. 12 Side"
                            "\nF. 20 Side\n\n\n")
             dicelist = ["a","A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F"]
-            if diceCh not in dicelist:
+            if diceCh.lower() == "a":
+                userdice = "A. 4 Side"
+            elif diceCh.lower() == "b":
+                userdice = "B. 6 Side"
+            elif diceCh.lower() == "c":
+                userdice = "C. 8 Side"
+            elif diceCh.lower() == "d":
+                userdice = "D. 10 Side"
+            elif diceCh.lower() == "e":
+                userdice = "E. 12 Side"
+            elif diceCh.lower() == "f":
+                userdice = "F. 20 Side"
+            else:
                 print(color(200,150,10,"-----------------------"))
                 print(color(255,10,10,"Please input a valid option!"))
                 print(color(200,150,10,"-----------------------"))
-            if diceCh.lower() == "a":
-                userinput = "A. 4 Side"
-            if diceCh.lower() == "b":
-                userinput = "B. 6 Side"
-            if diceCh.lower() == "c":
-                userinput = "C. 8 Side"
-            if diceCh.lower() == "d":
-                userinput = "D. 10 Side"
-            if diceCh.lower() == "e":
-                userinput = "E. 12 Side"
-            if diceCh.lower() == "f":
-                userinput = "F. 20 Side"
-            print(color(150,80,230,"\nYour Choice: {}".format(userinput)))
+            print(color(150,80,230,"\nYour Choice: {}".format(userdice)))
+
         elif answer == "2":
             try:
                 if diceCh.lower() == "a":
@@ -202,49 +205,82 @@ def PassGen():
                 print(color(255,10,10,"Please Input Your Keywords For Each Option First!"))
                 print(color(200,150,10,"-----------------------"))
         elif answer == "3":
-            print(color(0,200,255,"\n\n\nTypes of words to add to your password generation, or Back"))
-            answer = input("\n1. Choose a Memorable Place To You, Eg. Kulim Park"
+            while True:
+                print(color(0,200,255,"\n\n\nTypes of words to add to your password generation, or Back"))
+                answer = input("\n1. Choose a Memorable Place To You, Eg. Kulim Park"
                            "\n2. Choose Your Most Common Emotion, Eg. Anger\n3. Choose Your Favourite Animal" +
                            color(255,150,10,"\n4. Back to Password Gen Menu\n\n\n"))
-            if answer == "1":
-                while True:
-                    ownchoice1 = input(color(150,80,230,
-                        "Type Below a/multiple Memorable Place, or Type '1' to go Back\n\n"))
-                    if ownchoice1 == "1":
-                        PassGen()
-
-                    else:
-                        placelist.append(ownchoice1)
-                        print("{} : ".format(ownchoice1) + color(255,150,10,"Has been added to the 'Place' List!"))
-            elif answer == "2":
-                while True:
-                    ownchoice2 = input(color(150,80,230,
-                        "Type Below Common Emotion/Emotions To You, or Type '1' to go Back\n\n"))
-                    if ownchoice2 == "1":
-                        PassGen()
-                    else:
-                        emotionlist.append(ownchoice2)
-                        print("{} : ".format(ownchoice2) + color(255,150,10,"Has been added to the 'Emotion' List!"))
-            elif answer == "3":
-                while True:
-                    ownchoice3 = input(color(150,80,230,
-                        "Type Below Your Favourite Animal/Animals, or Type '1' to go Back\n\n"))
-                    if ownchoice3 == "1":
-                        PassGen()
-                    else:
-                        animallist.append(ownchoice3)
-                        print("{} : ".format(ownchoice3) + color(255,150,10,"Has been added to the 'Animal' List!"))
-            elif answer == "4":
-                PassGen()
-            else:
-                print(color(200,150,10,"-----------------------"))
-                print(color(255,10,10,"Please input a valid option!"))
-                print(color(200,150,10,"-----------------------"))
+                if answer == "1":
+                    while True:
+                        ownchoice1 = input(color(150,80,230,
+                            "Type Below a/multiple Memorable Place, or Type '1' to go Back\n\n"))
+                        if ownchoice1 == "1":
+                            break
+                        else:
+                            placelist.append(ownchoice1)
+                            print("{} : ".format(ownchoice1) + color(255,150,10,"Has been added to the 'Place' List!"))
+                elif answer == "2":
+                    while True:
+                        ownchoice2 = input(color(150,80,230,
+                            "Type Below Common Emotion/Emotions To You, or Type '1' to go Back\n\n"))
+                        if ownchoice2 == "1":
+                            break
+                        else:
+                            emotionlist.append(ownchoice2)
+                            print("{} : ".format(ownchoice2) + color(255,150,10,"Has been added to the 'Emotion' List!"))
+                elif answer == "3":
+                    while True:
+                        ownchoice3 = input(color(150,80,230,
+                            "Type Below Your Favourite Animal/Animals, or Type '1' to go Back\n\n"))
+                        if ownchoice3 == "1":
+                            break
+                        else:
+                            animallist.append(ownchoice3)
+                            print("{} : ".format(ownchoice3) + color(255,150,10,"Has been added to the 'Animal' List!"))
+                elif answer == "4":
+                    PassGen()
+                else:
+                    print(color(200,150,10,"-----------------------"))
+                    print(color(255,10,10,"Please input a valid option!"))
+                    print(color(200,150,10,"-----------------------"))
 
         elif answer == "4":
-            print("Your Place List:" + placelist)
-            print("Your Emotion List:" + emotionlist)
-            print("Your Animal List:" + animallist)
+            while True:
+                print("Your Place List: {}".format(placelist))
+                print("Your Emotion List: {}".format(emotionlist))
+                print("Your Animal List: {}".format(animallist))
+                answer = input(color(0,200,255,"\nChoose list and Remove Word, or Back") + "\n1. Edit Place List\n"
+                    "2. Edit Emotion List\n3. Edit Animal List\n4. Back" + color(250,10,10,"\n5. Exit\n\n\n"))
+                if answer == "1":
+                    while True:
+                        print("Your Place List: {}".format(placelist))
+                        listremove = input(color(150,80,230,"Type the number of the word you want to delete in PLACE LIST, or Type 'Back'\n\n\n"))
+                        if listremove.lower() == "back":
+                            PassGen()
+                        elif listremove == listremove.float:
+                            try:
+                                del placelist[listremove]
+                            except:
+                                print(color(200,150,10,"-----------------------"))
+                                print(color(255,10,10,"Please input a valid option!"))
+                                print(color(200,150,10,"-----------------------"))
+                        else:
+                            print(color(200,150,10,"-----------------------"))
+                            print(color(255,10,10,"Please input a valid option!"))
+                            print(color(200,150,10,"-----------------------"))
+                elif answer == "2":
+                    pass
+                elif answer == "3":
+                    pass
+                elif answer == "4":
+                    PassGen()
+                elif answer == "5":
+                    EndP()
+                else:
+                    print(color(200,150,10,"-----------------------"))
+                    print(color(255,10,10,"Please input a valid option!"))
+                    print(color(200,150,10,"-----------------------"))
+
         elif answer == "5":
             MenuP()
 
