@@ -1,7 +1,7 @@
 #Importing built in "Random" Function.
 import random
 
-#Text color function.
+#Text color function: Makes some text more noticeable and understandable.
 def color(r, g, b, text):
     return "\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text)
 
@@ -253,25 +253,44 @@ def PassGen():
                     "2. Edit Emotion List\n3. Edit Animal List\n4. Back" + color(250,10,10,"\n5. Exit\n\n\n"))
                 if answer == "1":
                     while True:
-                        print("Your Place List: {}".format(placelist))
-                        listremove = input(color(150,80,230,"Type the number of the word you want to delete in PLACE LIST, or Type 'Back'\n\n\n"))
-                        if listremove.lower() == "back":
-                            PassGen()
-                        elif listremove == listremove.float:
-                            try:
-                                del placelist[listremove]
-                            except:
-                                print(color(200,150,10,"-----------------------"))
-                                print(color(255,10,10,"Please input a valid option!"))
-                                print(color(200,150,10,"-----------------------"))
-                        else:
+                        try:
+                            print("Your Place List: {}".format(placelist))
+                            listremove = int(input(color(150,80,230,"Type the number of the word you want to delete in PLACE LIST, or Type '0' to go back.\n\n\n")))
+                            if listremove == 0:
+                                break
+                            else:
+                                del placelist[listremove-1]
+                        except:
                             print(color(200,150,10,"-----------------------"))
                             print(color(255,10,10,"Please input a valid option!"))
                             print(color(200,150,10,"-----------------------"))
+
                 elif answer == "2":
-                    pass
+                    while True:
+                        try:
+                            print("Your Emotion List: {}".format(emotionlist))
+                            listremove = int(input(color(150,80,230,"Type the number of the word you want to delete in EMOTION LIST, or Type '0' to go back.\n\n\n")))
+                            if listremove == 0:
+                                break
+                            else:
+                                del emotionlist[listremove-1]
+                        except:
+                            print(color(200,150,10,"-----------------------"))
+                            print(color(255,10,10,"Please input a valid option!"))
+                            print(color(200,150,10,"-----------------------"))
                 elif answer == "3":
-                    pass
+                    while True:
+                        try:
+                            print("Your Animal List: {}".format(animallist))
+                            listremove = int(input(color(150,80,230,"Type the number of the word you want to delete in ANIMAL LIST, or Type '0' to go back.\n\n\n")))
+                            if listremove == 0:
+                                break
+                            else:
+                                del animallist[listremove-1]
+                        except:
+                            print(color(200,150,10,"-----------------------"))
+                            print(color(255,10,10,"Please input a valid option!"))
+                            print(color(200,150,10,"-----------------------"))
                 elif answer == "4":
                     PassGen()
                 elif answer == "5":
