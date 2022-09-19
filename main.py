@@ -24,7 +24,7 @@ def MenuP():
             PassGen()
 
         elif answer == "5":
-            pass
+            NameGen()
 
         elif answer == "6":
             EndP()
@@ -50,7 +50,7 @@ def EndP():
             print(color(200,150,10,"-----------------------"))
             EndP()
 
-#8-Ball Choice: User can shake ball, Menu or back.
+#8-Ball Choice: User can shake ball and recieve answers.
 def Magic8Ball():
     balldict = [color(10,200,10,"It is certain."),color(10,200,10,"It is decidedly so."),
                 color(10,200,10,"Without a doubt."),color(10,200,10,"Yes definitely."),
@@ -177,7 +177,7 @@ def Dice():
             print(color(255,10,10,"Please input a valid option!"))
             print(color(200,150,10,"-----------------------"))
 
-#Password.Gen Choice:
+#Password.Gen Choice: Generates passwords of user's choice or preset.
 placelist = []
 emotionlist = []
 animallist = []
@@ -310,6 +310,49 @@ def PassGen():
             print(color(200,150,10,"-----------------------"))
             print(color(255,10,10,"Please input a valid option!"))
             print(color(200,150,10,"-----------------------"))
+
+#Name.Gen:
+def NameGen():
+    rname1_list = ["Oliver"
+        "Noah","Jack","Leo","George","Charlie","Lucas","Theodore","William","Luca",
+        "Elijah","Liam","Mason","James","Thomas","Hudson","Arlo","Lachlan",
+        "Archie","Arthur","Hunter","Oscar","Max","Levi","Finn",
+        "Hugo","Ethan","Asher","Henry","Cooper","carter",]
+    rname2_list = ["Ezra","Lincoln","Felix","Alexander","Archer","Beau",
+        "Harrison","Eli","Jackson","Louis","Theo","Benjamin","Nikau","Isaac","Joseph",
+        "Joshua","Blake","Daniel","Samuel","Grayson","Caleb","Jasper","Luka",
+        "Braxton","Edward","Jacob","Harry","Harvey","River","Riley","Roman"]
+    rname1 = rname1_list[0,len(rname1_list)-1]
+    rname2 = rname2_list[0,len(rname2_list)-1]
+    gname1_list = ["Administered","Arranged","Chaired","Coordinated",
+        "Directed","Executed","Delegated","Headed","Managed","Operated","Orchestrated","Organized","Planned",
+        "Produced","Programmed","Spearheaded","Accelerated","Achieved","Advanced","Amplified","Boosted","Capitalized",
+        "Conserved","Consolidated","Decreased","Deducted","Delivered","Enhanced","Expanded","Expedited"]
+    gname2_list = []
+    while True:
+        print(color(0,200,255,"\nGenerate Preset Names, Input your own Names, See Own list, Menu or Exit."))
+        answer = input("1. Generate Real Name\n2. Genarate Gamer Name\n3. Generate Own Name\n4. Create Own Name Gen"
+                       "\n5. See Own Gen List\n6. Menu" + color(250,10,10,"\n7. Exit\n\n\n"))
+        if answer == "1":
+            print(color(150,80,230,"Your Generated Name:") + "{}{}".format(rname1,rname2))
+        elif answer == "2":
+            print(color(150,80,230,"Your Generated Name:") + "{}{}".format(gname1,gname2))
+        elif answer == "3":
+            pass
+        elif answer == "4":
+            pass
+        elif answer == "5":
+            pass
+        elif answer == "6":
+            pass
+        elif answer == "7":
+            pass
+        else:
+            print(color(200,150,10,"-----------------------"))
+            print(color(255,10,10,"Please input a valid option!"))
+            print(color(200,150,10,"-----------------------"))
+
+
 
 MenuP()
 
