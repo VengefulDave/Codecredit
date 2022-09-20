@@ -313,30 +313,40 @@ def PassGen():
 
 #Name.Gen:
 def NameGen():
-    rname1_list = ["Oliver"
+    rname1_list = ["Oliver",
         "Noah","Jack","Leo","George","Charlie","Lucas","Theodore","William","Luca",
         "Elijah","Liam","Mason","James","Thomas","Hudson","Arlo","Lachlan",
         "Archie","Arthur","Hunter","Oscar","Max","Levi","Finn",
-        "Hugo","Ethan","Asher","Henry","Cooper","carter",]
+        "Hugo","Ethan","Asher","Henry","Cooper","carter"]
     rname2_list = ["Ezra","Lincoln","Felix","Alexander","Archer","Beau",
         "Harrison","Eli","Jackson","Louis","Theo","Benjamin","Nikau","Isaac","Joseph",
         "Joshua","Blake","Daniel","Samuel","Grayson","Caleb","Jasper","Luka",
         "Braxton","Edward","Jacob","Harry","Harvey","River","Riley","Roman"]
-    rname1 = rname1_list[0,len(rname1_list)-1]
-    rname2 = rname2_list[0,len(rname2_list)-1]
-    gname1_list = ["Administered","Arranged","Chaired","Coordinated",
-        "Directed","Executed","Delegated","Headed","Managed","Operated","Orchestrated","Organized","Planned",
-        "Produced","Programmed","Spearheaded","Accelerated","Achieved","Advanced","Amplified","Boosted","Capitalized",
-        "Conserved","Consolidated","Decreased","Deducted","Delivered","Enhanced","Expanded","Expedited"]
-    gname2_list = []
+
+    gname1_list = ["Comprimised","Arranged","Engulfed","Coordinated",
+                    "Controlled","Executed","Delegated","Delegtable","Inslaved","Operated","Orchestrated","Organized","Consumable",
+                    "Newborn","Programmed","Spearheaded","Accelerated","Experienced","Advanced","Amplified","Boosted","Capitalized",
+                    "Preserved","Deceased","Aborted","Unwanted","Scrumptious","Enhanced","Super","Neglegted"]
+    gname2_list = ["Zaza Induced","Special Needs","Christian","Crazy","Drunk","High","Broke","African","Homie","Funky",
+                   "Jumping","Rushing","Golden","Silver","Bronze","Russian","Egyption","Muslim","Bloody","Chinese"
+                   ,"Korean","Japanese","Indian","Corrupt","Nigerian","Hispanic","Smelly","Chunky","Humongous","Flabby",]
+    gname3_list = ["Frog","Cow","Pig","Crow","Dog","Horse","Goat","Parrot","Salmon","Monk",
+                    "Moose","Deer","Bear","Zebra","Kiwi","Monkey","Ape","Snake","Elephant","Hippo",
+                    "Dragon","Unicorn","Goblin","Orc","Hobbit","Elf","Homosapien","Chuthulu","Golem","Chupacabra"]
+
     while True:
         print(color(0,200,255,"\nGenerate Preset Names, Input your own Names, See Own list, Menu or Exit."))
         answer = input("1. Generate Real Name\n2. Genarate Gamer Name\n3. Generate Own Name\n4. Create Own Name Gen"
                        "\n5. See Own Gen List\n6. Menu" + color(250,10,10,"\n7. Exit\n\n\n"))
         if answer == "1":
-            print(color(150,80,230,"Your Generated Name:") + "{}{}".format(rname1,rname2))
+            rname1 = rname1_list[random.randint(0,29)]
+            rname2 = rname2_list[random.randint(0,29)]
+            print(color(150,80,230,"Your Generated Name:") + "{} {}".format(rname1,rname2))
         elif answer == "2":
-            print(color(150,80,230,"Your Generated Name:") + "{}{}".format(gname1,gname2))
+            gname1 = gname1_list[random.randint(0,len(gname1_list)-1)]
+            gname2 = gname2_list[random.randint(0,len(gname2_list)-1)]
+            gname3 = gname3_list[random.randint(0,len(gname3_list)-1)]
+            print(color(150,80,230,"Your Generated Name:") + "{} {} {}".format(gname1,gname2,gname3))
         elif answer == "3":
             pass
         elif answer == "4":
@@ -344,9 +354,9 @@ def NameGen():
         elif answer == "5":
             pass
         elif answer == "6":
-            pass
+            MenuP()
         elif answer == "7":
-            pass
+            EndP()
         else:
             print(color(200,150,10,"-----------------------"))
             print(color(255,10,10,"Please input a valid option!"))
