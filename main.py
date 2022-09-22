@@ -208,7 +208,7 @@ def PassGen():
             while True:
                 print(color(0,200,255,"\n\n\nTypes of words to add to your password generation, or Back"))
                 answer = input("\n1. Choose a Memorable Place To You, Eg. Kulim Park"
-                           "\n2. Choose Your Most Common Emotion, Eg. Anger\n3. Choose Your Favourite Animal" +
+                           "\n2. Choose Your Most Common Emotion, Eg. Anger\n3. Choose Your Favourite Animal, Eg. Monkey" +
                            color(255,150,10,"\n4. Back to Password Gen Menu\n\n\n"))
                 if answer == "1":
                     while True:
@@ -348,9 +348,55 @@ def NameGen():
             gname3 = gname3_list[random.randint(0,len(gname3_list)-1)]
             print(color(150,80,230,"Your Generated Name:") + "{} {} {}".format(gname1,gname2,gname3))
         elif answer == "3":
-            pass
+            try:
+                placegen = placelist[(random.randint(0,len(placelist)-1))]
+                emotiongen = emotionlist[(random.randint(0,len(emotionlist)-1))]
+                animalgen = animallist[(random.randint(0,len(animallist)-1))]
+                print(color(150,80,230,"Your Generated Name:") +
+                    "{} {} {}".format(emotiongen,animalgen,placegen))
+            except:
+                print(color(200,150,10,"-----------------------"))
+                print(color(255,10,10,"Please Input Your Names For Each Option First!"))
+                print(color(200,150,10,"-----------------------"))
         elif answer == "4":
-            pass
+             while True:
+                print(color(0,200,255,"\n\n\nTypes of words to add to your Name generation, or Back"))
+                answer = input("\n1. Choose a First Name or Doing/Action word"
+                           "\n2. Choose a Middle Name or Describing word\n3. Choose a Last Name or 2nd Describing word" +
+                           color(255,150,10,"\n4. Back to Name Gen Menu\n\n\n"))
+                if answer == "1":
+                    while True:
+                        ownchoice1 = input(color(150,80,230,
+                            "Type Below a/multiple First Names or Doing/Action words, or Type '1' to go Back\n\n"))
+                        if ownchoice1 == "1":
+                            break
+                        else:
+                            placelist.append(ownchoice1)
+                            print("{} : ".format(ownchoice1) + color(255,150,10,"Has been added to the 'Place' List!"))
+                elif answer == "2":
+                    while True:
+                        ownchoice2 = input(color(150,80,230,
+                            "Type Below a/multiple Middle Names or Describing words, or Type '1' to go Back\n\n"))
+                        if ownchoice2 == "1":
+                            break
+                        else:
+                            emotionlist.append(ownchoice2)
+                            print("{} : ".format(ownchoice2) + color(255,150,10,"Has been added to the 'Emotion' List!"))
+                elif answer == "3":
+                    while True:
+                        ownchoice3 = input(color(150,80,230,
+                            "Type Below a/multiple Last Names or 2nd Describing words, or Type '1' to go Back\n\n"))
+                        if ownchoice3 == "1":
+                            break
+                        else:
+                            animallist.append(ownchoice3)
+                            print("{} : ".format(ownchoice3) + color(255,150,10,"Has been added to the 'Animal' List!"))
+                elif answer == "4":
+                    NameGen()
+                else:
+                    print(color(200,150,10,"-----------------------"))
+                    print(color(255,10,10,"Please input a valid option!"))
+                    print(color(200,150,10,"-----------------------"))
         elif answer == "5":
             pass
         elif answer == "6":
