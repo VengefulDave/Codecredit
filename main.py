@@ -4,7 +4,7 @@ import random
 #Text color function: Makes some text more noticeable and understandable.
 def color(r, g, b, text):
 
-    #Transferes the colour ratios from my chossing to the text.
+    #Transferes the colour ratios from my choosing to the text.
     return "\033[38;2;{};{};{}m{} \033[38;2;255;255;255m".format(r, g, b, text)
 
 #Menu Choice: User can choose style of generation.
@@ -411,19 +411,25 @@ def NameGen():
                     "Moose","Deer","Bear","Zebra","Kiwi","Monkey","Ape","Snake","Elephant","Hippo",
                     "Dragon","Unicorn","Goblin","Orc","Hobbit","Elf","Homosapien","Chuthulu","Golem","Chupacabra"]
 
+    #User can select what type of generation to use.
     while True:
         print(color(0,200,255,"\nGenerate Preset Names, Input your own Names, See Own list, Menu or Exit."))
         answer = input("1. Generate Real Name\n2. Genarate Gamer Name\n3. Generate Own Name\n4. Create Own Name Gen"
                        "\n5. See Own Gen List\n6. Menu" + color(250,10,10,"\n7. Exit\n\n\n"))
+
+        #Generates names from a preset list.
         if answer == "1":
             rname1 = rname1_list[random.randint(0,29)]
             rname2 = rname2_list[random.randint(0,29)]
             print(color(150,80,230,"Your Generated Name:") + "{} {}".format(rname1,rname2))
+
         elif answer == "2":
             gname1 = gname1_list[random.randint(0,len(gname1_list)-1)]
             gname2 = gname2_list[random.randint(0,len(gname2_list)-1)]
             gname3 = gname3_list[random.randint(0,len(gname3_list)-1)]
             print(color(150,80,230,"Your Generated Name:") + "{} {} {}".format(gname1,gname2,gname3))
+
+        #Generates name from user's lists.
         elif answer == "3":
             try:
                 firstname = firstlist[(random.randint(0,len(firstlist)-1))]
@@ -435,45 +441,60 @@ def NameGen():
                 print(color(200,150,10,"-----------------------"))
                 print(color(255,10,10,"Please Input Your Names For Each Option First!"))
                 print(color(200,150,10,"-----------------------"))
+
+        #User can put words/names into lists.
         elif answer == "4":
              while True:
                 print(color(0,200,255,"\n\n\nTypes of words to add to your Name generation, or Back"))
                 answer = input("\n1. Choose a First Name or Doing/Action word"
                            "\n2. Choose a Middle Name or Describing word\n3. Choose a Last Name or 2nd Describing word" +
                            color(255,150,10,"\n4. Back to Name Gen Menu\n\n\n"))
+
                 if answer == "1":
                     while True:
                         firstchoice1 = input(color(150,80,230,
                             "Type Below a/multiple First Names or Doing/Action words, or Type '1' to go Back\n\n"))
+
                         if firstchoice1 == "1":
                             break
+
                         else:
                             firstlist.append(firstchoice1)
                             print("{} : ".format(firstchoice1) + color(255,150,10,"Has been added to the 'First' List!"))
+
                 elif answer == "2":
                     while True:
                         middlechoice2 = input(color(150,80,230,
                             "Type Below a/multiple Middle Names or Describing words, or Type '1' to go Back\n\n"))
+
                         if middlechoice2 == "1":
                             break
+
                         else:
                             middlelist.append(middlechoice2)
                             print("{} : ".format(middlechoice2) + color(255,150,10,"Has been added to the 'Middle' List!"))
+
                 elif answer == "3":
                     while True:
                         lastchoice3 = input(color(150,80,230,
                             "Type Below a/multiple Last Names or 2nd Describing words, or Type '1' to go Back\n\n"))
+
                         if lastchoice3 == "1":
                             break
+
                         else:
                             lastlist.append(lastchoice3)
                             print("{} : ".format(lastchoice3) + color(255,150,10,"Has been added to the 'Last' List!"))
+
                 elif answer == "4":
                     NameGen()
+
                 else:
                     print(color(200,150,10,"-----------------------"))
                     print(color(255,10,10,"Please input a valid option!"))
                     print(color(200,150,10,"-----------------------"))
+
+        #User can edit their lists - Remove words and see their list.
         elif answer == "5":
              while True:
                 print("Your First List: {}".format(firstlist))
@@ -481,13 +502,16 @@ def NameGen():
                 print("Your Last List: {}".format(lastlist))
                 answer = input(color(0,200,255,"\nChoose list and Remove Word, or Back") + "\n1. Edit First List\n"
                     "2. Edit Middle List\n3. Edit Last List\n4. Back" + color(250,10,10,"\n5. Exit\n\n\n"))
+
                 if answer == "1":
                     while True:
                         try:
                             print("Your First List: {}".format(firstlist))
                             listremove = int(input(color(150,80,230,"Type the number of the word you want to delete in FIRST LIST, or Type '0' to go back.\n\n\n")))
+
                             if listremove == 0:
                                 break
+
                             else:
                                 del firstlist[listremove-1]
                         except:
@@ -500,8 +524,10 @@ def NameGen():
                         try:
                             print("Your Middle List: {}".format(middlelist))
                             listremove = int(input(color(150,80,230,"Type the number of the word you want to delete in MIDDLE LIST, or Type '0' to go back.\n\n\n")))
+
                             if listremove == 0:
                                 break
+
                             else:
                                 del middlelist[listremove-1]
                         except:
@@ -514,26 +540,34 @@ def NameGen():
                         try:
                             print("Your Last List: {}".format(lastlist))
                             listremove = int(input(color(150,80,230,"Type the number of the word you want to delete in LAST LIST, or Type '0' to go back.\n\n\n")))
+
                             if listremove == 0:
                                 break
+
                             else:
                                 del lastlist[listremove-1]
                         except:
                             print(color(200,150,10,"-----------------------"))
                             print(color(255,10,10,"Please input a valid option!"))
                             print(color(200,150,10,"-----------------------"))
+
                 elif answer == "4":
                     NameGen()
+
                 elif answer == "5":
                     EndP()
+
                 else:
                     print(color(200,150,10,"-----------------------"))
                     print(color(255,10,10,"Please input a valid option!"))
                     print(color(200,150,10,"-----------------------"))
+
         elif answer == "6":
             MenuP()
+
         elif answer == "7":
             EndP()
+
         else:
             print(color(200,150,10,"-----------------------"))
             print(color(255,10,10,"Please input a valid option!"))
